@@ -3,13 +3,15 @@
 
 int main(int argc, char *argv[], char *envp[])
 {
-	int i;
-	
-	for (i = 0; envp[i]!=NULL; i++)
+
+	for (int i = 0; envp[i]!=NULL; i++)
 	{
 		if (strncmp("USER=", envp[i], 5) == 0){
-			printf ("Hello %s", &envp[i][5]);
+			printf ("Hello %s\n", &envp[i][5]);
+			return 0;
 		}
+
 	}
-	return 2;
+
+	return 1;
 }

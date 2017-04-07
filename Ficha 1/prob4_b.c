@@ -3,12 +3,15 @@
 
 int main(int argc, char *argv[])
 {
-	int i;
+	if (argc != 3){
+		perror("Nao deu dois argumentos");
+		exit(1);
+	}
 
-	for (i=0; i<atoi(argv[2]); i++)
+	for (int i=0; i<atoi(argv[2]); i++)
 	{
 		printf("Hello %s!\n", argv[1]);
 	}
 
-	return 2;
+	return 0;
 }
