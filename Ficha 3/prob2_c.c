@@ -4,7 +4,8 @@
 #include <stdio.h>
 
 int main(void) {
-  printf("1");
+  printf("1");  //A stream do standard output e' guardada num buffer antes de ser impressa
+  //podemos dar flush (imprimir) esse buffer por exemplo com o caracter newline \n
   if(fork() > 0) {
     printf("2");
     printf("3");

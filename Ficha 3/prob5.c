@@ -4,7 +4,7 @@
 #include <wait.h>
 
 
-int main ()
+int main () //Not checking for errors
 {
   pid_t pid;
 
