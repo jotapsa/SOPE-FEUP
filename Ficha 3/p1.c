@@ -3,7 +3,6 @@
 #include <unistd.h>
 #include <stdio.h>
 
-
 int global=1;
 
 int main(void) {
@@ -19,6 +18,8 @@ int main(void) {
    global--;
    local++;
  }
+
  printf("PID = %d - global = %d ; local = %d\n", getpid(), global, local);
+
  return 0;
 }
