@@ -24,30 +24,32 @@ int main (int argc, char *argv[]){
   }
 
   if (argc == 3){
-    dest = open (argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR|S_IWUSR);
+    dest = open (argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IWUSR | S_IRUSR);
+
     if (dest == -1){
       perror (argv[2]);
       close (source);
-      return 2;
+      return 3;
     }
-  }
-  else{
-    dest = STDIN_FILENO;
+
+    //Identifica o ficheiro dest, com o descritor STDOUT_FILENO
+    if (dup2 (dest, STDOUT_FILENO) == -1){
+      perror ("Error");
+      close (source);
+      close (STDOUT_FILENO);
+      exit(1);
+    }
   }
 
   while ((bytes = read (source, copyBuffer, MAX_LEN))>0){
-    if ((writtenBytes = write (dest, copyBuffer, bytes)) <= 0 || writtenBytes != bytes){
+    if ((writtenBytes = write (STDOUT_FILENO, copyBuffer, bytes)) <= 0 || writtenBytes != bytes){
       perror (argv[2]);
       close (source);
-      if (argc == 3){
-        close (dest);
-      }
+      close (STDOUT_FILENO);
     }
   }
 
   close (source);
-  if (argc == 3){
-    close (dest);
-  }
+  close (STDOUT_FILENO);
   return 0;
 }
