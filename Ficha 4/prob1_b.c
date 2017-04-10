@@ -16,10 +16,11 @@ int main(void)
     exit(1);
   }
   printf("Sleeping for 30 seconds ...\n");
-  
-  for (int i=0; i<30; i++)
-    sleep(1);
 
+  for (int i=0; i<30; i++){
+    sleep(1);
+  }
+  
   printf("Waking up ...\n");
   exit(0);
 }

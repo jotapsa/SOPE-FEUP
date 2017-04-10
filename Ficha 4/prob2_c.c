@@ -7,7 +7,7 @@
 void sigint_handler(int signo)
 {
 	printf("Entering SIGINT handler ...\n");
-	sleep(10);
+	sleep(10); // se enviarmos SIGTERM para este processo quando este comando esta a ser processado, vamos passar por cima dele
 	printf("Exiting SIGINT handler ...\n");
 }
 
