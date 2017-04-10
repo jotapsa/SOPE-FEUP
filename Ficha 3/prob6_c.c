@@ -28,12 +28,10 @@ int main(void)
 
       printf("I'm process %d. My parent is %d."
       "I finished my work\n", getpid(),getppid());
-
-      exit(0); // a eliminar na alinea c)
     }
     else{ // simulando o trabalho do pai
-      for (j=1; j<=10; j++) {
-        waitpid (-1, &status, WNOHANG | WUNTRACED); //-1 -> Esperar por um filho qualquer 
+      for (j=1; j<=5; j++) {
+        waitpid (-1, &status, WNOHANG | WUNTRACED); //-1 -> Esperar por um filho qualquer
         //WNOHANG. nao bloqueia se o filho nao tiver disponivel,
         //WUNTRACED se o status do filho ainda nao tiver sido reportado e' agora
         sleep(1);
