@@ -36,7 +36,11 @@ int main (){
     read (fd[0], &b, sizeof(int));
 
     printf ("%d + %d = %d\n", a, b, a+b);
-    //...
+    printf ("%d - %d = %d\n", a, b, a-b);
+    printf ("%d * %d = %d\n", a, b, a*b);
+    if (b!=0){
+      printf ("%d / %d = %f\n", a, b, (float)a/b);
+    }
   }
 
   return 0;

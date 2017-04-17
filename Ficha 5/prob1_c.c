@@ -41,7 +41,11 @@ int main (){
     read (fd[0], b, MAX_SIZE);
 
     printf ("%d + %d = %d\n", atoi(a), atoi(b), atoi(a)+atoi(b));
-    //...
+    printf ("%d - %d = %d\n", atoi(a), atoi(b), atoi(a)-atoi(b));
+    printf ("%d * %d = %d\n", atoi(a), atoi(b), atoi(a)*atoi(b));
+    if (atoi(b)!=0){
+      printf ("%d / %d = %f\n", atoi(a), atoi(b), (float)atoi(a)/atoi(b));
+    }
   }
 
   return 0;

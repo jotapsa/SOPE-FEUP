@@ -38,7 +38,11 @@ int main (){
     read (fd[0], &val, sizeof(values));
 
     printf ("%d + %d = %d\n", val.a, val.b, val.a+val.b);
-    //...
+    printf ("%d - %d = %d\n", val.a, val.b, val.a-val.b);
+    printf ("%d * %d = %d\n", val.a, val.b, val.a*val.b);
+    if (val.b!=0){
+      printf ("%d / %d = %f\n", val.a, val.b, (float)val.a/val.b);
+    }
   }
 
   return 0;
